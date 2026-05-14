@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trispconv"
+version = "0.1.0"
+description = "PyTorch/Triton reimplementation of the spconv.pytorch API for sparse 3D convolution inference"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "torch",
+]
+
+[project.optional-dependencies]
+triton = ["triton; platform_system == 'Linux'"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["trispconv*"]
